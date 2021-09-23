@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.paper,
     },
     containerFluid: {
-        width: "1365px",
+        maxWidth: "1365px",
         margin: "0 auto",
         backgroundColor: "transparent",
 
