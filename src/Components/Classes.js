@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: "transparent",
 
         '@media (max-width:1364px)': {
-          width:"90vw"
+            width: "90vw"
         }
     },
     customIconButton: {
@@ -40,8 +40,10 @@ export const useStyles = makeStyles((theme) => ({
     Links: {
         textDecoration: "none",
         color: "black",
+        fontFamily:"Sans-Serif !important",
         '&:hover': {
             textDecoration: "none",
+            transform: "scale(1.1)",
         }
     },
     HeaderTitle: {

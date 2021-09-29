@@ -21,9 +21,9 @@ const Navbar = () => {
                                         <MaxWayIcon/>
                                     </IconButton>
                                     <Box display={"flex"} width={256} style={{marginRight:"-286px"}} justifyContent={"space-between"} alignItems={"center"}>
-                                        <Typography><Link to={"/"} className={classes.Links} >Menyu</Link></Typography>
-                                        <Typography><Link to={"/"} className={classes.Links} >Bolalar uchun</Link></Typography>
-                                        <Typography><Link to={"/"} className={classes.Links} >Filiallar</Link></Typography>
+                                        <Link to={"/"} className={classes.Links} >Menyu</Link>
+                                        <Link to={"/"} className={classes.Links} >Bolalar uchun</Link>
+                                        <Link to={"/"} className={classes.Links} >Filiallar</Link>
                                     </Box>
                                     <Box display={'flex'} width={456} justifyContent={"space-around"} alignItems={"center"}>
                                         <Box display={'flex'} width={156} justifyContent={"space-around"} alignItems={"center"}>
