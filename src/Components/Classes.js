@@ -40,7 +40,7 @@ export const useStyles = makeStyles((theme) => ({
     Links: {
         textDecoration: "none",
         color: "black",
-        fontFamily:"Sans-Serif !important",
+        fontFamily: "Sans-Serif !important",
         '&:hover': {
             textDecoration: "none",
             transform: "scale(1.1)",
@@ -64,15 +64,78 @@ export const useStyles = makeStyles((theme) => ({
             background: "#800A7A",
             marginLeft: "30px"
         }
+    }, MenuWrapper: {
+        display: "flex",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+
+        '@media (max-width:475px)': {
+            width: "90%"
+        },
+
+    }, Tab: {
+        '@media (max-width:590px)': {
+            padding: "0",
+            fontSize: "11px",
+        },
+
+
+    }, MapWrapper: {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+
+    }, TabPanel: {
+        '@media (max-width:590px)': {
+            padding: "0"
+        },
     },
+    Total: {
+        '@media (max-width:610px)': {
+            display: "none"
+        },
+    },
+    CardActionsMobile: {
+        display: "none",
+        '@media (max-width:740px)': {
+            display: "block"
+        },
+    },
+    CardActionsPC: {
+        display: "block",
+        '@media (max-width:740px)': {
+            display: "none"
+        },
+    },
+
     CustomCards: {
         width: "530px",
-        margin: "30px",
+        margin: "30px 10px",
         border: "1px solid rgba(151, 151, 151, 0.181927)",
         padding: "30px",
         boxSizing: "border-box",
         display: "flex",
+
+        '@media (max-width:740px)': {
+            width: "382.7px",
+            margin: "10px 0",
+            display: "block",
+            textAlign: "center",
+        },
+        '@media (max-width:460px)': {
+            // width: "282.7px",
+            margin: "10px 0",
+            padding: "0"
+        }
     },
+    CustomCardsImg: {
+        '@media (max-width:740px)': {
+            width: "127.57px",
+            height: "127.57px",
+        }
+    }
+    ,
     CustomButton: {
         width: "50px",
         height: "50px",
@@ -144,6 +207,4 @@ export const useStyles = makeStyles((theme) => ({
         borderTop: "1px solid black",
         marginBottom: "10px"
     },
-
-
 }))

@@ -1,6 +1,4 @@
 import { createTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
 
 export const theme = createTheme({
     palette: {
@@ -9,9 +7,6 @@ export const theme = createTheme({
         },
         secondary: {
             main: "#FFF",
-        },
-        white:{
-            main: "#fff"
         }
     },
 

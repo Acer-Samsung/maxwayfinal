@@ -10,8 +10,6 @@ import PropTypes from "prop-types";
 import {useStyles} from "./Classes";
 import {Database} from "./Database";
 import {Add, Remove} from "@material-ui/icons";
-import Pishloq from "../assets/img/pishloq.png";
-import Piza1 from "../assets/img/Piza1.png";
 
 const Main = () => {
 
@@ -27,8 +25,8 @@ const Main = () => {
                 {...other}
             >
                 {value === index && (
-                    <Box p={3}>
-                        <Typography>{children}</Typography>
+                    <Box className={classes.TabPanel}>
+                        <div>{children}</div>
                     </Box>
                 )}
             </div>
@@ -80,7 +78,7 @@ const Main = () => {
                 price: item.price,
                 imgSrc: item.imgSrc
             })
-            sum=0;
+            sum = 0;
             setSum(sum)
             for (let i = 0; i < bucket.length; i++) {
                 sum += bucket[i].price;
@@ -103,22 +101,34 @@ const Main = () => {
 
         }
 
+        /*
+
+        xs, extra-small: 0px
+        sm, small: 600px
+        md, medium: 900px
+        lg, large: 1200px
+        xl, extra-large: 1536px
+
+        */
+
         return (
             <>
                 <Typography variant={"h2"}>{Type}</Typography>
-                <Box id={"Pizza"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
+                <div className={classes.MapWrapper}>
                     {Database.map((item) => {
                         if (Type === item.type) {
                             return (
-                                <Grid xs={6}>
+
                                     <Card elevation className={classes.CustomCards}>
                                         <CardMedia>
-                                            <img src={`${item.imgSrc}`} alt="imgSrcNotFound"/>
+                                            <img src={`${item.imgSrc}`} className={classes.CustomCardsImg}
+                                                 alt="imgSrcNotFound"/>
                                         </CardMedia>
                                         <Box display={"flex"} flexDirection={"column"}>
                                             <CardContent>
                                                 <Box mb={1}>
-                                                    <Box display={"flex"} alignItems={"start"}>
+                                                    <Box display={"flex"} alignItems={"start"}
+                                                         justifyContent={"center"}>
                                                         <Typography style={{
                                                             marginBottom: "8px",
                                                             fontWeight: "bold"
@@ -133,7 +143,7 @@ const Main = () => {
                                                     }}>{item.description}</Typography>
                                                 </Box>
                                             </CardContent>
-                                            <CardActions>
+                                            <CardActions className={classes.CardActionsPC}>
                                                 <Box display={"flex"} ml={1} width={"100%"}
                                                      justifyContent={"space-between"} alignItems={"center"}>
                                                     <IconButton
@@ -141,115 +151,126 @@ const Main = () => {
                                                         onClick={() => removeCost(item)}><Remove/>
                                                     </IconButton>
                                                     <Typography variant={"h5"}>{item.price} UZS</Typography>
-                                                        <IconButton
-                                                            style={{backgroundColor:"yellowgreen"}}
-                                                            className={classes.IconButton}
-                                                            onClick={() => addCost(item)}><Add/>
-                                                        </IconButton>
-
-
-
+                                                    <IconButton
+                                                        style={{backgroundColor: "yellowgreen"}}
+                                                        className={classes.IconButton}
+                                                        onClick={() => addCost(item)}><Add/>
+                                                    </IconButton>
 
 
                                                 </Box>
                                             </CardActions>
                                         </Box>
+                                        <CardActions className={classes.CardActionsMobile}>
+                                            <Box display={"flex"} width={"100%"}
+                                                 justifyContent={"space-between"} alignItems={"center"}>
+                                                <IconButton
+                                                    className={classes.IconButton}
+                                                    onClick={() => removeCost(item)}><Remove/>
+                                                </IconButton>
+                                                <Typography variant={"h5"}>{item.price} UZS</Typography>
+                                                <IconButton
+                                                    style={{backgroundColor: "yellowgreen"}}
+                                                    className={classes.IconButton}
+                                                    onClick={() => addCost(item)}><Add/>
+                                                </IconButton>
+
+
+                                            </Box>
+                                        </CardActions>
                                     </Card>
-                                </Grid>
+
                             )
                         }
                         return ''
                     })}
-                </Box>  </>)
+                </div>
+            </>)
     }
 
 
     return (
         <section id={"Main"} style={{marginTop: "68px"}}>
-            <Grid container>
-                <Grid item xs={1} lg={0} xl={0}/>
-                <Grid item xs={10} lg={10} xl={10}>
-                    <Grid container xs={12}>
+            <Grid container justifyContent={"center"}>
+                <Grid xs={0} sm={0} md={0} lg={1} xl={1}/>
+                <Grid xs={10} sm={10} md={10} lg={10} xl={10}>
 
-                        <Box display={"flex"} width={"100%"} ml={4} alignItems={"center"}
-                             justifyContent={"space-between"}>
-                            <Tabs
-                                value={value}
-                                onChange={handleChange}
-                                indicatorColor="primary"
-                                textColor="primary"
-                                variant={"fullWidth"}
-                                centered
-                            >
-                                <Tab label="Barchasi"/>
-                                <Tab label="Pitsa"/>
-                                <Tab label="Burger"/>
-                                <Tab label="Kombo"/>
-                                <Tab label="Salatlar"/>
-                                <Tab label="Ichimliklar"/>
-                            </Tabs>
-                            <Typography style={{paddingBottom: "3px"}}>Ja'mi: {sum}so'm</Typography>
+                    <Box className={classes.MenuWrapper}>
+                        <Tabs
+                            value={value}
+                            onChange={handleChange}
+                            indicatorColor="primary"
+                            textColor="primary"
+                            variant={"scrollable"}
+                            centered
+                            scrollButtons={"auto"}
+                        >
+                            <Tab className={classes.Tab} label="Barchasi"/>
+                            <Tab className={classes.Tab} label="Pitsa"/>
+                            <Tab className={classes.Tab} label="Burger"/>
+                            <Tab className={classes.Tab} label="Kombo"/>
+                            <Tab className={classes.Tab} label="Salatlar"/>
+                            <Tab className={classes.Tab} label="Ichimliklar"/>
+                        </Tabs>
+                        <Typography className={classes.Total}>Ja'mi: {sum}so'm</Typography>
+                    </Box>
+
+                    <TabPanel value={value} index={0}>
+
+                        <Box id={"Pizza"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
+
+                            {() => MapFunction("Pitsa")}
                         </Box>
+                        <Box id={"Burger"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
 
-                        <TabPanel value={value} index={0}>
-                            {/*<Typography variant={"h2"}>Pitsa</Typography>*/}
-                            <Box id={"Pizza"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Pizza"}/>*/}
-                                {() => MapFunction("Pitsa")}
-                            </Box>
-                            <Box id={"Burger"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Burger"}/>*/}
-                                {() => MapFunction("Burger")}
-                            </Box>
-                            <Box id={"Kombo"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Kombo"}/>*/}
-                                {() => MapFunction("Kombo")}
-                            </Box>
-                            <Box id={"Salat"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Salat"}/>*/}
-                                {() => MapFunction("Salat")}
-                            </Box>
-                            <Box id={"Ichimlik"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Ichimlik"}/>*/}
-                                {() => MapFunction("Ichimlik")}
-                            </Box>
-                        </TabPanel>
-                        <TabPanel value={value} index={1}>
-                            <Box id={"Pizza"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Pizza"}/>*/}
-                                {() => MapFunction("Pitsa")}
-                            </Box>
-                        </TabPanel>
-                        <TabPanel value={value} index={2}>
-                            <Box id={"Burger"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Burger"}/>*/}
-                                {() => MapFunction("Burger")}
-                            </Box>
-                        </TabPanel>
-                        <TabPanel value={value} index={3}>
-                            <Box id={"Kombo"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Kombo"}/>*/}
-                                {() => MapFunction("Kombo")}
-                            </Box>
-                        </TabPanel>
-                        <TabPanel value={value} index={4}>
-                            <Box id={"Salat"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Salat"}/>*/}
-                                {() => MapFunction("Salat")}
-                            </Box>
-                        </TabPanel>
-                        <TabPanel value={value} index={5}>
-                            <Box id={"Ichimlik"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
-                                {/*<Mapper type={"Ichimlik"}/>*/}
-                                {() => MapFunction("Ichimlik")}
-                            </Box>
-                        </TabPanel>
+                            {() => MapFunction("Burger")}
+                        </Box>
+                        <Box id={"Kombo"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
 
+                            {() => MapFunction("Kombo")}
+                        </Box>
+                        <Box id={"Salat"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
 
-                    </Grid>
+                            {() => MapFunction("Salat")}
+                        </Box>
+                        <Box id={"Ichimlik"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
+
+                            {() => MapFunction("Ichimlik")}
+                        </Box>
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                        <Box id={"Pizza"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
+                            {/*<Mapper type={"Pizza"}/>*/}
+                            {() => MapFunction("Pitsa")}
+                        </Box>
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                        <Box id={"Burger"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
+                            {/*<Mapper type={"Burger"}/>*/}
+                            {() => MapFunction("Burger")}
+                        </Box>
+                    </TabPanel>
+                    <TabPanel value={value} index={3}>
+                        <Box id={"Kombo"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
+                            {/*<Mapper type={"Kombo"}/>*/}
+                            {() => MapFunction("Kombo")}
+                        </Box>
+                    </TabPanel>
+                    <TabPanel value={value} index={4}>
+                        <Box id={"Salat"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
+                            {/*<Mapper type={"Salat"}/>*/}
+                            {() => MapFunction("Salat")}
+                        </Box>
+                    </TabPanel>
+                    <TabPanel value={value} index={5}>
+                        <Box id={"Ichimlik"} display={"flex"} flexWrap={"wrap"} justifyContent={"space-between"}>
+                            {/*<Mapper type={"Ichimlik"}/>*/}
+                            {() => MapFunction("Ichimlik")}
+                        </Box>
+                    </TabPanel>
 
                 </Grid>
-                <Grid item xs={1} lg={1} xl={1}/>
+                <Grid xs={0} sm={0} md={0} lg={1} xl={1}/>
 
             </Grid>
         </section>

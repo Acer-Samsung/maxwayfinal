@@ -1,10 +1,9 @@
 import React from 'react';
-import Navbar from "./Components/Navbar";
-import {Box, Container, Grid} from "@material-ui/core";
 import {useStyles} from "./Components/Classes";
+import Footer from "./Components/Footer";
+import {Grid} from "@material-ui/core";
 import Header from "./Components/Header";
 import Main from "./Components/Main";
-import Footer from "./Components/Footer";
 
 const HomePage = () => {
     const classes = useStyles();
@@ -12,14 +11,18 @@ const HomePage = () => {
         <>
 
         <div className={classes.containerFluid}>
-            <Grid container justifyContent={"center"}>
-                <Grid item lg={12} md={12} sm={12}>
+
+
+
+
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                     <Header/>
                     <Main/>
 
                 </Grid>
-            </Grid>
-            <div className={classes.BG}/>
+
+
+            {/*<div className={classes.BG}/>*/}
         </div>
     <Footer/>
         </>
