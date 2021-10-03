@@ -9,5 +9,4 @@ export const theme = createTheme({
             main: "#FFF",
         }
     },
-
 });

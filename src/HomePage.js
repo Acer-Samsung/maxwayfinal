@@ -7,6 +7,7 @@ import Main from "./Components/Main";
 
 const HomePage = () => {
     const classes = useStyles();
+
     return (
         <>
 
@@ -16,11 +17,9 @@ const HomePage = () => {
 
 
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                    <Header/>
+                    {/*<Header/>*/}
                     <Main/>
-
                 </Grid>
-
 
             {/*<div className={classes.BG}/>*/}
         </div>

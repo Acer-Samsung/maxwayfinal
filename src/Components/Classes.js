@@ -1,5 +1,8 @@
 import {makeStyles} from "@material-ui/core";
 
+var width = (window.innerWidth > 0) ? window.innerWidth : "hello";
+console.log(width)
+
 export const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -163,6 +166,7 @@ export const useStyles = makeStyles((theme) => ({
         // color: "#fff",
         borderRadius: "27px",
         padding: "10px",
+        margin:"5px 0",
         transition: "all 0.2s linear",
         '&:active': {
             background: "#F1B301",
@@ -188,23 +192,122 @@ export const useStyles = makeStyles((theme) => ({
 
     },
     Footer: {
-        height: "501px",
+        height: "510px",
         width: "100%",
         // backgroundImage: "linear-gradient(to right,transparent 1%,purple 1%)",
         backgroundColor: "purple",
         marginTop: "173px",
-        position: "relative"
+        position: "relative",
+
+        "@media(max-width:780px)":{
+            height:"550px"
+        },
+
     },
     FooterBox: {
+        width: "540px",
+        margin: "72px 0",
+        display: "flex",
+        justifyContent: "space-between",
+        marginTop:"38px",
+
+        "@media(max-width:959.5px)":{
+            width:"auto",
+        },
+
+        "@media(max-width:780px)":{
+            flexDirection:"column",
+            width:"auto",
+            alignItems:"center",
+            height:"165px"
+        },
+
+    },
+    FooterBoxIn: {
+        width: "60%",
         display: "flex",
         justifyContent: "space-between",
 
     },
+    FooterArticle: {
+        color: "#fff",
+        fontSize: "52px",
+        lineHeight: "63px",
+        fontWeight: "bold",
+        "@media(max-width:780px)":{
+            fontSize: "32px",
+            lineHeight:"46px"
+        },
+
+    },
+    FooterBoxMain: {
+        width: "100%",
+        margin: "72px 0",
+        display: "flex",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+
+
+    }, Article: {
+
+        "&:nth-child(1)": {
+            display:"block",
+            "@media(max-width:959px)": {
+                display: "none"
+            }
+        }, "&:last-child": {
+            display: "none",
+            "@media(max-width:959px)": {
+                display: "block",
+                textAlign: "center",
+            }
+        },
+
+
+    },
+
     bigPhone: {
-        marginTop: "-140px"
+        marginTop: "-140px",
+        width: "auto",
+
+        '@media (max-width:1200px)': {
+            width: "335px"
+        },"@media(max-width:959px)": {
+            marginLeft:"128px",
+            marginTop:"-300px",
+        },"@media(max-width:600px)": {
+            height:"180px",
+            marginLeft:"58px",
+            marginTop:"-135px",
+            width:"186px"
+        },
+    },
+    FooterButton: {
+        textTransform: "none",
+        width: "250px",
+        height: "80px",
+        borderRadius: "46px",
+        display: "flex",
+        justifyContent: "center",
+
+        '@media (max-width:1200px)': {
+            // width: "235px"
+        },
+
     },
     End: {
         borderTop: "1px solid black",
         marginBottom: "10px"
+    },
+    BeforeEnd: {
+        "@media(max-width:600px)": {
+            width: "100%",
+            margin: "72px 0",
+            display: "flex",
+            flexDirection:"column",
+            justifyContent: "space-between",
+            alignItems:"start",
+            flexWrap: "wrap",
+        },
     },
 }))
