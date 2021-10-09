@@ -10,8 +10,7 @@ import PropTypes from "prop-types";
 import {useStyles} from "./Classes";
 import {Database} from "./Database";
 import {Add, Remove} from "@material-ui/icons";
-import Pishloq from "../assets/img/pishloq.png";
-import Piza1 from "../assets/img/Piza1.png";
+
 
 const Main = () => {
 
@@ -35,17 +34,7 @@ const Main = () => {
         );
     }
 
-    function LinkTab(props) {
-        return (
-            <Tab
-                component="a"
-                onClick={(event) => {
-                    event.preventDefault();
-                }}
-                {...props}
-            />
-        );
-    }
+   
 
     TabPanel.propTypes = {
         children: PropTypes.node,
@@ -53,12 +42,6 @@ const Main = () => {
         value: PropTypes.any.isRequired,
     };
 
-    function a11yProps(index) {
-        return {
-            id: `simple-tab-${index}`,
-            'aria-controls': `simple-tabpanel-${index}`,
-        };
-    }
 
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
@@ -66,7 +49,7 @@ const Main = () => {
         setValue(newValue);
     };
     var [sum, setSum] = useState(0);
-    var [bucket, setBucket] = useState([]);
+    var [bucket] = useState([]);
 
     const MapFunction = (Type) => {
 

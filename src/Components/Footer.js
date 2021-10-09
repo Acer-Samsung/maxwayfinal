@@ -5,8 +5,7 @@ import BigPhone from "../assets/img/bigPhone.png"
 import {Apple, Copyright, Facebook, Instagram, LinkedIn, Shop, Telegram, YouTube} from "@material-ui/icons";
 import {MaxWayIcon} from "../assets/CustomIcons";
 import {List,ListItemText,ListItem}from "@material-ui/core"
-import Header from "./Header";
-import Main from "./Main";
+
 
 const Footer = () => {
 
