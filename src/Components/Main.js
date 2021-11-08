@@ -33,30 +33,11 @@ const Main = () => {
         );
     }
 
-    function LinkTab(props) {
-        return (
-            <Tab
-                component="a"
-                onClick={(event) => {
-                    event.preventDefault();
-                }}
-                {...props}
-            />
-        );
-    }
-
     TabPanel.propTypes = {
         children: PropTypes.node,
         index: PropTypes.any.isRequired,
         value: PropTypes.any.isRequired,
     };
-
-    function a11yProps(index) {
-        return {
-            id: `simple-tab-${index}`,
-            'aria-controls': `simple-tabpanel-${index}`,
-        };
-    }
 
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
@@ -64,7 +45,7 @@ const Main = () => {
         setValue(newValue);
     };
     var [sum, setSum] = useState(0);
-    var [bucket, setBucket] = useState([]);
+    var [bucket] = useState([]);
 
     const MapFunction = (Type) => {
 
@@ -84,7 +65,6 @@ const Main = () => {
                 sum += bucket[i].price;
                 setSum(sum);
             }
-            console.log(bucket)
         }
 
         const removeCost = (item) => {
@@ -119,7 +99,7 @@ const Main = () => {
                         if (Type === item.type) {
                             return (
 
-                                    <Card elevation className={classes.CustomCards}>
+                                    <Card elevation={0} className={classes.CustomCards}>
                                         <CardMedia>
                                             <img src={`${item.imgSrc}`} className={classes.CustomCardsImg}
                                                  alt="imgSrcNotFound"/>
@@ -147,6 +127,7 @@ const Main = () => {
                                                 <Box display={"flex"} ml={1} width={"100%"}
                                                      justifyContent={"space-between"} alignItems={"center"}>
                                                     <IconButton
+                                                        style={{backgroundColor:""}}
                                                         className={classes.IconButton}
                                                         onClick={() => removeCost(item)}><Remove/>
                                                     </IconButton>
@@ -161,23 +142,6 @@ const Main = () => {
                                                 </Box>
                                             </CardActions>
                                         </Box>
-                                        <CardActions className={classes.CardActionsMobile}>
-                                            <Box display={"flex"} width={"100%"}
-                                                 justifyContent={"space-between"} alignItems={"center"}>
-                                                <IconButton
-                                                    className={classes.IconButton}
-                                                    onClick={() => removeCost(item)}><Remove/>
-                                                </IconButton>
-                                                <Typography variant={"h5"}>{item.price} UZS</Typography>
-                                                <IconButton
-                                                    style={{backgroundColor: "yellowgreen"}}
-                                                    className={classes.IconButton}
-                                                    onClick={() => addCost(item)}><Add/>
-                                                </IconButton>
-
-
-                                            </Box>
-                                        </CardActions>
                                     </Card>
 
                             )
@@ -190,10 +154,10 @@ const Main = () => {
 
 
     return (
-        <section id={"Main"} style={{marginTop: "68px"}}>
+        <section id={"Main"} className={classes.allSection}>
             <Grid container justifyContent={"center"}>
-                <Grid xs={0} sm={0} md={0} lg={1} xl={1}/>
-                <Grid xs={10} sm={10} md={10} lg={10} xl={10}>
+                <Grid item xs={1} sm={1} md={1} lg={1} xl={1}/>
+                <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
 
                     <Box className={classes.MenuWrapper}>
                         <Tabs
@@ -202,7 +166,6 @@ const Main = () => {
                             indicatorColor="primary"
                             textColor="primary"
                             variant={"scrollable"}
-                            centered
                             scrollButtons={"auto"}
                         >
                             <Tab className={classes.Tab} label="Barchasi"/>
@@ -270,7 +233,7 @@ const Main = () => {
                     </TabPanel>
 
                 </Grid>
-                <Grid xs={0} sm={0} md={0} lg={1} xl={1}/>
+                <Grid item xs={1} sm={1} md={1} lg={1} xl={1}/>
 
             </Grid>
         </section>

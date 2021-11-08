@@ -1,7 +1,6 @@
 import {makeStyles} from "@material-ui/core";
 
-var width = (window.innerWidth > 0) ? window.innerWidth : "hello";
-console.log(width)
+// var width = (window.innerWidth > 0) ? window.innerWidth : "hello";
 
 export const useStyles = makeStyles((theme) => ({
     root: {
@@ -84,6 +83,27 @@ export const useStyles = makeStyles((theme) => ({
         },
 
 
+    }, allSection: {
+        marginTop: "68px",
+        '@media (max-width:960px)': {
+            marginTop: '270px'
+        },
+        '@media (max-width:814px)': {
+            marginTop: '320px'
+        },
+        '@media (max-width:630px)': {
+            marginTop: '500px'
+        },
+        '@media (max-width:600px)': {
+            marginTop: '370px'
+        },
+        '@media (max-width:400px)': {
+            marginTop: '170px'
+        },
+        '@media (max-width:174px)': {
+            marginTop: '200px'
+        },
+
     }, MapWrapper: {
         display: "flex",
         flexWrap: "wrap",
@@ -152,13 +172,22 @@ export const useStyles = makeStyles((theme) => ({
     },
     IconButton: {
         background: "#F1B301",
-        color: "#fff",
+        color: "#fff !important",
         transition: "all 0.2s linear",
-        '&:hover': {
-            transform: "scale(1.1)",
-            background: "#F1B301",
-            color: "#fff",
-        }
+        '&:nth-child(1)':{
+            '&:hover': {
+                transform: "scale(1.1) !important",
+                background: "#F1B301  !important",
+                color: "#fff !important",
+            }
+        },'&:last-child':{
+            '&:hover': {
+                transform: "scale(1.1) !important",
+                background: "yellowgreen  !important",
+                color: "#fff !important",
+            }
+        },
+
     },
     FilterButton: {
         textTransform: "none",
@@ -166,7 +195,7 @@ export const useStyles = makeStyles((theme) => ({
         // color: "#fff",
         borderRadius: "27px",
         padding: "10px",
-        margin:"5px 0",
+        margin: "5px 0",
         transition: "all 0.2s linear",
         '&:active': {
             background: "#F1B301",
@@ -199,8 +228,8 @@ export const useStyles = makeStyles((theme) => ({
         marginTop: "173px",
         position: "relative",
 
-        "@media(max-width:780px)":{
-            height:"550px"
+        "@media(max-width:780px)": {
+            height: "550px"
         },
 
     },
@@ -209,17 +238,17 @@ export const useStyles = makeStyles((theme) => ({
         margin: "72px 0",
         display: "flex",
         justifyContent: "space-between",
-        marginTop:"38px",
+        marginTop: "38px",
 
-        "@media(max-width:959.5px)":{
-            width:"auto",
+        "@media(max-width:959.5px)": {
+            width: "auto",
         },
 
-        "@media(max-width:780px)":{
-            flexDirection:"column",
-            width:"auto",
-            alignItems:"center",
-            height:"165px"
+        "@media(max-width:780px)": {
+            flexDirection: "column",
+            width: "auto",
+            alignItems: "center",
+            height: "165px"
         },
 
     },
@@ -234,9 +263,9 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: "52px",
         lineHeight: "63px",
         fontWeight: "bold",
-        "@media(max-width:780px)":{
+        "@media(max-width:780px)": {
             fontSize: "32px",
-            lineHeight:"46px"
+            lineHeight: "46px"
         },
 
     },
@@ -251,7 +280,7 @@ export const useStyles = makeStyles((theme) => ({
     }, Article: {
 
         "&:nth-child(1)": {
-            display:"block",
+            display: "block",
             "@media(max-width:959px)": {
                 display: "none"
             }
@@ -272,14 +301,14 @@ export const useStyles = makeStyles((theme) => ({
 
         '@media (max-width:1200px)': {
             width: "335px"
-        },"@media(max-width:959px)": {
-            marginLeft:"128px",
-            marginTop:"-300px",
-        },"@media(max-width:600px)": {
-            height:"180px",
-            marginLeft:"58px",
-            marginTop:"-135px",
-            width:"186px"
+        }, "@media(max-width:959px)": {
+            marginLeft: "128px",
+            marginTop: "-300px",
+        }, "@media(max-width:600px)": {
+            height: "180px",
+            marginLeft: "58px",
+            marginTop: "-135px",
+            width: "186px"
         },
     },
     FooterButton: {
@@ -304,9 +333,9 @@ export const useStyles = makeStyles((theme) => ({
             width: "100%",
             margin: "72px 0",
             display: "flex",
-            flexDirection:"column",
+            flexDirection: "column",
             justifyContent: "space-between",
-            alignItems:"start",
+            alignItems: "start",
             flexWrap: "wrap",
         },
     },

@@ -18,7 +18,7 @@ const Footer = () => {
                     <Grid item xl={1} lg={1} md={1} sm={1} xs={1}/>
                     <Grid item xl={10} lg={10} md={10} sm={10} xs={10}>
                         <Box id={"FooterPart1"} mt={"75px"} className={classes.FooterBoxMain}>
-                            <Grid className={classes.Article} xs={12} sm={12} md={8} lg={8} xl={8}>
+                            <Grid className={classes.Article} item xs={12} sm={12} md={8} lg={8} xl={8}>
                                 <Typography className={classes.FooterArticle}>
                                     Mobil ilovamiz <br/>
                                     orqali buyurtma <br/>
@@ -39,7 +39,7 @@ const Footer = () => {
                                 </Box>
                             </Grid>
 
-                            <Grid xs={12} sm={12} md={4} lg={4} xl={4}>
+                            <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                                 <Box style={{
                                     display: "flex",
                                     justifyContent: "center"
@@ -48,7 +48,7 @@ const Footer = () => {
                                 </Box>
                             </Grid>
 
-                            <Grid className={classes.Article} xs={12} sm={12} md={8} lg={8} xl={8}>
+                            <Grid item className={classes.Article} xs={12} sm={12} md={8} lg={8} xl={8}>
                                 <Typography className={classes.FooterArticle}>
                                     Mobil ilovamiz <br/>
                                     orqali buyurtma <br/>
@@ -73,57 +73,57 @@ const Footer = () => {
 
 
                         <Box id={"FooterPart2"} mt={"103px"} alignItems={"start"} className={[classes.FooterBoxMain,classes.BeforeEnd]}>
-                            <Grid xs={12} sm={12} md={2} lg={2} xl={2}><MaxWayIcon/></Grid>
-                            <Grid xs={12} sm={12} md={2} lg={2} xl={2}>
+                            <Grid item xs={12} sm={12} md={2} lg={2} xl={2}><MaxWayIcon/></Grid>
+                            <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
                                 <List>
-                                    <ListItem disablePadding>
+                                    <ListItem key={"1"} disablePadding>
                                         <Button style={{textTransform: "none"}}>
                                             <ListItemText primary="Asosiy"/>
                                         </Button>
                                     </ListItem>
-                                    <ListItem disablePadding>
+                                    <ListItem key={"2"} disablePadding>
                                         <Button style={{textTransform: "none"}} component="a" href="#simple-list">
                                             <ListItemText primary="Kompaniya haqida"/>
                                         </Button>
                                     </ListItem>
-                                    <ListItem disablePadding>
+                                    <ListItem key={"3"} disablePadding>
                                         <Button style={{textTransform: "none"}} component="a" href="#simple-list">
                                             <ListItemText primary="Filiallar"/>
                                         </Button>
                                     </ListItem>
-                                    <ListItem disablePadding>
+                                    <ListItem key={"4"} disablePadding>
                                         <Button style={{textTransform: "none"}} component="a" href="#simple-list">
                                             <ListItemText primary="Bolalar uchun"/>
                                         </Button>
                                     </ListItem>
                                 </List>
                             </Grid>
-                            <Grid xs={12} sm={12} md={2} lg={2} xl={2}>
+                            <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
                                 <List>
-                                    <ListItem disablePadding>
+                                    <ListItem key={"5"} disablePadding>
                                         <Button style={{textTransform: "none"}}>
                                             <ListItemText primary="Qo'shimcha"/>
                                         </Button>
                                     </ListItem>
-                                    <ListItem disablePadding>
+                                    <ListItem key={"6"} disablePadding>
                                         <Button style={{textTransform: "none"}} component="a" href="#simple-list">
                                             <ListItemText primary="Menu"/>
                                         </Button>
                                     </ListItem>
-                                    <ListItem disablePadding>
+                                    <ListItem key={"7"} disablePadding>
                                         <Button style={{textTransform: "none"}} component="a" href="#simple-list">
                                             <ListItemText primary="Bonusli karta"/>
                                         </Button>
                                     </ListItem>
-                                    <ListItem disablePadding>
+                                    <ListItem key={"8"} disablePadding>
                                         <Button style={{textTransform: "none"}} component="a" href="#simple-list">
                                             <ListItemText primary="Bu qanday ishlaydi"/>
                                         </Button>
                                     </ListItem>
                                 </List>
                             </Grid>
-                            <Grid xs={12} sm={12} md={2} lg={2} xl={2}/>
-                            <Grid xs={12} sm={12} md={4} lg={4} xl={4}>
+                            <Grid item xs={12} sm={12} md={2} lg={2} xl={2}/>
+                            <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                                 <Typography variant={"h6"} style={{fontWeight: "700"}}>Biz bilan aloqa</Typography>
                                 <Typography variant={"h6"}
                                             style={{fontWeight: "700", fontSize: "25px", marginTop: "33px"}}>(+998 71)
